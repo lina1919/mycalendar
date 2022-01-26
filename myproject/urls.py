@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import path, include
+import jymap.views
+import account.views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', jymap.views.calendar_view, name="calendar"),
+    path('event/new/', jymap.views.event, name="new"),
+    path('event/edit/<int:event_id>', jymap.views.event, name="edit"),
+    path('account/',include('account.urls')),
 ]
