@@ -8,7 +8,7 @@ class Calendar(HTMLCalendar):
 		self.month = month
 		super(Calendar, self).__init__()
 
-	# '일'을 td 태그로 변환하고 이벤트를 '일'순으로 필터
+	# '일'을 td 태그, 이벤트를 '일'순으로 필터
 	def formatday(self, day, events):
 		events_per_day = events.filter(start_time__day=day)
 		d = ''
@@ -19,15 +19,15 @@ class Calendar(HTMLCalendar):
 			return f"<td><span class='date'>{day}</span><ul class='event_line'> {d} </ul></td>"
 		return '<td></td>'
 
-	# '주'를 tr 태그로 변환
+	# '주'를 tr 태그로
 	def formatweek(self, theweek, events):
 		week = ''
 		for d, weekday in theweek:
 			week += self.formatday(d, events)
 		return f'<tr> {week} </tr>'
 
-	# '월'을 테이블 태그로 변환
-	# 각 '월'과 '연'으로 이벤트 필터
+	# '월'을 테이블 태그로
+	# 이벤트를 '월'과 '연'으로 필터
 	def formatmonth(self, withyear=True):
 		events = Event.objects.filter(start_time__year=self.year, start_time__month=self.month)
 

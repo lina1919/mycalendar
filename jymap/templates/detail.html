@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class = "posts">
+    {% if Post.start_time %}
+        <div>
+            {{ Post.start_time}}
+        </div>
+    {% endif %}
+    <h1>{{Post.title}}</h1>
+    <p>{{Post.description|linebreaks}}</p>
+</div>
+<div>
+    {% for image in Post.image_set.all %}
+        <img src = "{{ image.file.url }}" width = "450"><br>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,8 +1,14 @@
-@font-face { font-family: 'BMHANNAPro'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'nanumsquare'; src: url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css'); }
 
 h1 {
     text-align : center;
-    font-family: 'BMHANNAPro';
+    font-family: 'nanumsquare';
+}
+h2{
+    text-align : center;
+    font-family: 'nanumsquare';
+    color : black;
+    font-weight : 700;
 }
 
 .calendar{
@@ -13,7 +19,7 @@ h1 {
 	border-radius: 0 0 1em 1em;
 	-webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2), 10px 10px 10px 10px #fff;
 	box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2), 10px 10px 10px 10px #fff;
-	color: #555;
+	color: rgb(65, 65, 65);
     text-align : center;
 }
 
@@ -37,7 +43,7 @@ h1 {
 }
 
 .calendar tr {
-	color: #e66b6b;
+	color: #c25a5a;
 	font-weight: 700;
 	text-transform: uppercase;
 }
@@ -51,7 +57,7 @@ h1 {
   
 
 .calendar td:hover {
-	background: #cacaca;
+	background: #b3abab;
 	color: #fff;
 }
 
@@ -90,7 +96,7 @@ a:hover { color: red; text-decoration: none;}
   
   .form input, .form select, .form textarea {
     border-radius: 5px;
-    border: 1px solid #17a2b8;
+    border: 1px solid #e66b6b;
     outline: none;
     background: none;
     padding: 5px;

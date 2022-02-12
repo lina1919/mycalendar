@@ -17,10 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 import jymap.views
 import account.views
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', jymap.views.calendar_view, name="calendar"),
     path('event/new/', jymap.views.event, name="new"),
     path('event/edit/<int:event_id>', jymap.views.event, name="edit"),
+    path('event/detail/<int:index>', jymap.views.detail, name = "detail"),
     path('account/',include('account.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -9,7 +9,7 @@ class Event(models.Model):
     end_time = models.DateTimeField("마감시간")
     title = models.CharField("이벤트 이름", max_length=50)
     description = models.TextField("상세")
-
+    image = models.ImageField(upload_to='images/',blank=True)
     class Meta:
         verbose_name = "이벤트 데이터"
         verbose_name_plural = "이벤트 데이터"
@@ -19,5 +19,9 @@ class Event(models.Model):
 
     @property
     def get_html_url(self):
-        url = reverse('edit', args=(self.id,))
+        url = reverse('detail', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'
+
+class ImageFile(models.Model):
+    post = models.ForeignKey(Event, on_delete=models.CASCADE)
+    file = models.ImageField(upload_to='images/',blank=True, null = True)

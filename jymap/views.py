@@ -1,6 +1,7 @@
+from pdb import post_mortem
 from django.shortcuts import render,redirect, get_object_or_404, reverse
 from django.utils.safestring import mark_safe
-from .models import Event
+from .models import Event, ImageFile
 from .calendar import Calendar
 import calendar
 import datetime
@@ -52,6 +53,15 @@ def event(request, event_id=None):
     
     form = EventForm(request.POST or None, instance=instance)
     if request.POST and form.is_valid():
-        form.save()
+        post = form.save()
+        for img in request.FILES.getlist('imgs'):
+            image = ImageFile()
+            image.post = post
+            image.file = img
+            image.save()
         return redirect('calendar')
     return render(request, 'input.html', {'form': form})
+
+def detail(request, index):
+    Post = get_object_or_404(Event, pk=index)
+    return render(request, 'detail.html',{'Post':Post})

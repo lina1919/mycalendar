@@ -3,10 +3,11 @@
 <div class="container">
     <br>
     {% if user.is_authenticated %}
-        <form method="POST">
+        <form method="POST" enctype = 'multipart/form-data'>
             {% csrf_token %}
             <div class="form form-table">
                 {{ form }}
+                <input type="file" name = "imgs" multiple>
                 <button type="submit" class="btn btn-info right"> Submit </button>
             </div>
         </form>
