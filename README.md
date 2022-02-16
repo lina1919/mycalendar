@@ -7,7 +7,7 @@
 HTML/CSS, django 사용
 
 # 프로젝트 기능
-django의 HTMLCalendar를 이용하여 캘린더 구현  
+python의 calendar 모듈을 이용하여 캘린더 구현  
 CRUD와 detail페이지  
 회원가입/로그인  
 
